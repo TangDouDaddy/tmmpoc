@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+	<script>
+		function showcookie(){
+      alert(document.cookie);
+		}
+
+		function calljsbridge(){
+			window.WebViewJavascriptBridge.callHandler('JS_CMD_GET_GUID',function(res){
+				var guidiv = document.getElementById('guid');
+				guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
+			});
+		}
+    
+    window.qb_sendCeekie = function(res){
+      var ckdiv = document.getElementById('cookie');
+			ckdiv.innerHTML = '<h1>Cookie:</h1><p>' + JSON.stringify(res) + '</p>';
+    }
+
+	</script>
+	<button onclick="showcookie()">showCookie</button>
+	<button onclick="calljsbridge()">callJSBridge</button>
+
+	<div id="cookie"></div>
+	<div id="guid"></div>
+	</body>
+</html>
