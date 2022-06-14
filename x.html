@@ -15,12 +15,21 @@
 				guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
 			});
 		}
+		function dologin(){
+			window.WebViewJavascriptBridge.callHandler('JS_CMD_DO_LOGIN',function(res){
+				console.log(111);console.log(res);console.log(222);
+				var guidiv = document.getElementById('login');
+				guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
+			})
+		}
 
 	</script>
 	<button onclick="showcookie()">showCookie</button>
+	<button onclick="dologin()">dologin</button>
 	<button onclick="calljsbridge()">callJSBridge</button>
 
 	<div id="cookie"></div>
 	<div id="guid"></div>
+	<div id="login"></div>
 	</body>
 </html>
