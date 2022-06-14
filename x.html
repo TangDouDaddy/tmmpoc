@@ -4,6 +4,7 @@
 	</head>
 	<body>
 	<script>
+		window.webkit.messageHandlers.updateCookies = null;
 		function showcookie(){
 			var ckdiv = document.getElementById('cookie');
 			ckdiv.innerHTML = '<h1>Cookie:</h1><p>' + document.cookie + '</p>';
