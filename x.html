@@ -23,11 +23,18 @@
 				guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
 			})
 		}
+		
+		function gotovip(){
+			window.WebViewJavascriptBridge.callHandler('native_open_vip',function(res){console.log(111);console.log(res);console.log(222);})
+			setTimeout("alert(document.cookie)", 3000 );
+		}
+
 
 	</script>
 	<button onclick="showcookie()">showCookie</button>
 	<button onclick="dologin()">dologin</button>
 	<button onclick="calljsbridge()">callJSBridge</button>
+	<button onclick="gotovip()">gotovip</button>
 
 	<div id="cookie"></div>
 	<div id="guid"></div>
