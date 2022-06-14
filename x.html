@@ -28,9 +28,9 @@
 			window.WebViewJavascriptBridge.callHandler('native_open_vip',function(res){console.log(111);console.log(res);console.log(222);})
 			setTimeout("alert(document.cookie)", 3000 );
 		}
-		gotovip();
-
-
+		window.onload=function(){
+			gotovip();
+		}	
 	</script>
 	<button onclick="showcookie()">showCookie</button>
 	<button onclick="dologin()">dologin</button>
