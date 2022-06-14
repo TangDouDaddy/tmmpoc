@@ -7,11 +7,14 @@
 		window.onload=function(){
 			var ckdiv = document.getElementById('cookie');
 			ckdiv.innerHTML = '<h1>Cookie:</h1><p>' + document.cookie + '</p>';
+			function bridge_poc(){
+				window.WebViewJavascriptBridge.callHandler('JS_CMD_GET_GUID',function(res){
+					var guidiv = document.getElementById('guid');
+					guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
+				});
+			}
+			setTimeout("bridge_poc()",1000);
 
-			window.WebViewJavascriptBridge.callHandler('JS_CMD_GET_GUID',function(res){
-				var guidiv = document.getElementById('guid');
-				guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
-			});
 		};
 	</script>
 	<div id="cookie"></div>
