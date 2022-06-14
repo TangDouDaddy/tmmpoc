@@ -4,19 +4,22 @@
 	</head>
 	<body>
 	<script>
-		window.onload=function(){
+		function showCookie(){
 			var ckdiv = document.getElementById('cookie');
 			ckdiv.innerHTML = '<h1>Cookie:</h1><p>' + document.cookie + '</p>';
-			function bridge_poc(){
-				window.WebViewJavascriptBridge.callHandler('JS_CMD_GET_GUID',function(res){
-					var guidiv = document.getElementById('guid');
-					guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
-				});
-			}
-			setTimeout("bridge_poc()",1000);
+		}
 
-		};
+		function calljsbridge(){
+			window.WebViewJavascriptBridge.callHandler('JS_CMD_GET_GUID',function(res){
+				var guidiv = document.getElementById('guid');
+				guidiv.innerHTML = '<h1>WebViewJavascriptBridge.JS_CMD_GET_GUID:</h1><p>' + JSON.stringify(res) + '</p>';
+			});
+		}
+
 	</script>
+	<button onclick="showcookie()">showCookie</button>
+	<button onclick="calljsbridge()">callJSBridge</button>
+
 	<div id="cookie"></div>
 	<div id="guid"></div>
 	</body>
